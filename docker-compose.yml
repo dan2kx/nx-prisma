@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:5.7
+    container_name: nx-prisma
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: db
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - 33006:3306
+    volumes:
+      - db_data:/var/lib/mysql
+    labels:
+      - traefik.enable=false
+
+volumes:
+  db_data:
+
+networks:
+  default:
+    external:
+      name: docker-network
+

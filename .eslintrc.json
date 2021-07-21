@@ -1,0 +1,98 @@
+{
+  "root": true,
+  "plugins": ["@nrwl/nx", "@typescript-eslint", "react", "prettier"],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "prettier"
+  ],
+  "rules": {
+    "@typescript-eslint/semi": ["error"],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "prettier/prettier": "error",
+    "max-classes-per-file": ["error", 100],
+    "max-len": [
+      2,
+      120,
+      2,
+      {
+        "ignoreUrls": true,
+        "ignoreComments": false
+      }
+    ],
+    "react/react-in-jsx-scope": "off"
+    // "semi": "off",
+    // "object-shorthand": ["error", "methods"],
+    // "react/jsx-filename-extension": [
+    //   1,
+    //   {
+    //     "extensions": [".ts", ".tsx", ".js", ".jsx"]
+    //   }
+    // ],
+    // "brace-style": "off",
+    // "camelcase": "off",
+    // "comma-dangle": "off",
+    // "class-methods-use-this": "off",
+    // "import/extensions": "off",
+    // "import/no-cycle": [
+    //   0,
+    //   {
+    //     "ignoreExternal": true
+    //   }
+    // ],
+    // "import/no-dynamic-require": "off",
+    // "no-bitwise": "off",
+    // "no-extra-semi": "off",
+    // "no-plusplus": "off",
+    // "no-param-reassign": "off",
+    // "no-underscore-dangle": "off",
+    // "react/jsx-props-no-spreading": [
+    //   "error",
+    //   {
+    //     "custom": "ignore"
+    //   }
+    // ],
+    // "react/jsx-no-target-blank": "off",
+    // "react/no-string-refs": "off",
+    // "jsx-a11y/label-has-associated-control": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "@nrwl/nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "*",
+                "onlyDependOnLibsWithTags": ["*"]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@nrwl/nx/typescript"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nrwl/nx/javascript"],
+      "rules": {}
+    }
+  ]
+}

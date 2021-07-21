@@ -1,0 +1,12 @@
+# build container
+ARG APP
+
+FROM node:lts-alpine
+
+RUN apk add python make g++
+
+WORKDIR /app
+
+COPY . .
+
+EXPOSE 4200

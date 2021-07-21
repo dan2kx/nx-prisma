@@ -1,0 +1,22 @@
+{
+  "extends": "../../.eslintrc.json",
+  "ignorePatterns": ["prisma/*"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {}
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/triple-slash-reference": "off",
+        "import/no-unresolved": "off"
+      }
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {}
+    }
+  ]
+}
